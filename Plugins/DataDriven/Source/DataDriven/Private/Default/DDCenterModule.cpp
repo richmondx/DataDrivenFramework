@@ -24,7 +24,7 @@ void UDDCenterModule::IterModuleBeginPlay(UDDModule* Module)
 	for (int i = 0; i < Module->GetAttachChildren().Num(); ++i)
 	{
 		if (Cast<UDDModule>(Module->GetAttachChildren()[i]))
-			IterModuleBeginPlay(Module->GetAttachChildren()[i]);
+			IterModuleBeginPlay(Cast<UDDModule>(Module->GetAttachChildren()[i]));
 	}
 }
 
@@ -34,6 +34,6 @@ void UDDCenterModule::IterModuleTick(UDDModule* Module, float DeltaSeconds)
 	for (int i = 0; i < Module->GetAttachChildren().Num(); ++i)
 	{
 		if (Cast<UDDModule>(Module->GetAttachChildren()[i]))
-			IterModuleTick(Module->GetAttachChildren()[i], DeltaSeconds);
+			IterModuleTick(Cast<UDDModule>(Module->GetAttachChildren()[i]), DeltaSeconds);
 	}
 }

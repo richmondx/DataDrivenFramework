@@ -32,38 +32,38 @@ void UDDModule::ModuleTick(float DeltaSeconds)
 void UDDModule::Init()
 {
 	//实例化管理器
-	Manager = NewObject<UDDManager>(ManagerClass);
+	//Manager = NewObject<UDDManager>(ManagerClass);
 
-	Manager->MessageClass = MessageClass;
-	Manager->ModelClass = ModelClass;
+	//Manager->MessageClass = MessageClass;
+	//Manager->ModelClass = ModelClass;
 }
 
 void UDDModule::Register()
 {
 	//实例化模型和消息组件
-	Manager->Register();
+	//Manager->Register();
 
 }
 
 
 void UDDModule::Active()
 {
-	Manager->Active();
+	//Manager->Active();
 }
 
 void UDDModule::Disable()
 {
-	Manager->Disable();
+	//Manager->Disable();
 }
 
 void UDDModule::UnRegister()
 {
-	Manager->UnRegister();
+	//Manager->UnRegister();
 }
 
 void UDDModule::Release()
 {
-	Manager->Release();
+	//Manager->Release();
 }
 
 void UDDModule::IterCallFunction(UDDModule* Module, FString FunctionName, void* Param)

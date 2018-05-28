@@ -413,6 +413,7 @@
     <None Include="..\..\Config\DefaultEngine.ini" />
     <None Include="..\..\Config\DefaultGame.ini" />
     <None Include="..\..\Plugins\DataDriven\Source\DataDriven\DataDriven.Build.cs" />
+    <ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\Common\DDDefine.cpp" />
     <ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\DataDriven.cpp" />
     <ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\BaseObject\DDActor.cpp" />
     <ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\BaseObject\DDBaseObject.cpp" />
@@ -427,6 +428,7 @@
     <ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\DDCore\DDMessage.cpp" />
     <ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\DDCore\DDModel.cpp" />
     <ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\DDCore\DDModule.cpp" />
+    <ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\Common\DDDefine.h" />
     <ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\DataDriven.h" />
     <ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\BaseObject\DDActor.h" />
     <ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\BaseObject\DDBaseObject.h" />

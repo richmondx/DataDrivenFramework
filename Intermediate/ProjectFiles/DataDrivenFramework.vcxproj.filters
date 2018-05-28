@@ -186,10 +186,16 @@
     <ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\Default\DDCenterModule.h">
       <Filter>Plugins\DataDriven\Source\DataDriven\Public\Default</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\Common\DDDefine.h">
+      <Filter>Plugins\DataDriven\Source\DataDriven\Public\Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\Default\DDCenterModule.cpp">
       <Filter>Plugins\DataDriven\Source\DataDriven\Private\Default</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\Common\DDDefine.cpp">
+      <Filter>Plugins\DataDriven\Source\DataDriven\Private\Common</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

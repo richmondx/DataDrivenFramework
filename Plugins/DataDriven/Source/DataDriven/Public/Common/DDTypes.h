@@ -59,10 +59,17 @@ enum class EBaseObjectLife : uint8
 	Enable,
 	Disable,
 	UnRegister,
-	UnLoading,
-	Release
+	UnLoading
 };
 
+//BaseObject生命周期
+UENUM()
+enum class EBaseObjectState : uint8
+{
+	Active = 0, //激活进程
+	Stable,     //稳定进程
+	Destroy     //销毁进程
+};
 
 //消息通信机制
 struct FDDParam

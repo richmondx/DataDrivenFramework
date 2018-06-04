@@ -69,6 +69,44 @@ void UDDModel::ModelTick(float DeltaSeconds)
 		ObjectTickGroup[i]->ObjectTick(DeltaSeconds);
 	}
 
+
+	//运行释放对象组的释放函数,运行完后清空释放对象组,因为这些指针会释放,不需要再保存
+	for (int i = 0; i < ObjectReleaseGroup.Num(); ++i) {
+		ObjectReleaseGroup[i]->OnRealse();
+	}
+	ObjectReleaseGroup.Empty();
+
+
+	//清空临时序列
+	TempObjectGroup.Empty();
+	//处理预函数,如果是稳定状态,就转到临时对象组
+	for (int i = 0; i < PreObjectDestroyGroup.Num(); ++i)
+	{
+		if (PreObjectDestroyGroup[i]->RunState == EBaseObjectState::Stable)
+		{
+			//添加稳定运行状态的对象到临时对象组
+			TempObjectGroup.Add(PreObjectDestroyGroup[i]);
+			//添加稳定运行状态的对象到销毁进程组
+			ObjectDestroyGroup.Add(PreObjectDestroyGroup[i]);
+		}
+	}
+	//从预处理组中清除进入稳定状态的数组
+	for (int i = 0; i < TempObjectGroup.Num(); ++i)
+	{
+		PreObjectDestroyGroup.Remove(TempObjectGroup[i]);
+	}
+	//运行销毁对象组的销毁函数
+	for (int i = 0; i < ObjectDestroyGroup.Num(); ++i) {
+		//如果已经运行到释放状态
+		if (ObjectDestroyGroup[i]->DestroyLife()) {
+			//添加到释放对象组
+			ObjectReleaseGroup.Add(ObjectDestroyGroup[i]);
+			//从ObjectGroup和ObjectClassGroup移除数据
+			ObjectGroup.Remove(ObjectDestroyGroup[i]->GetObjectName());
+			if (ObjectClassGroup.Contains(ObjectDestroyGroup[i]->GetClassName())) ObjectClassGroup.Find(ObjectDestroyGroup[i]->GetClassName())->Remove(ObjectDestroyGroup[i]);
+		}
+	}
+
 }
 
 void UDDModel::GetSelfObject(TArray<FString>* ObjectNameGroup, TArray<DDBaseObject*>& TargetObjectGroup)
@@ -139,6 +177,46 @@ void UDDModel::GetOtherClass(TArray<FString>* ObjectNameGroup, TArray<DDBaseObje
 		//如果迭代到的这个类组与传入的类名不相同,添加到TargetObjectGroup
 		for (TArray<DDBaseObject*>::TIterator Ih(It->Value); Ih; ++Ih) {
 			TargetObjectGroup.Add(*Ih);
+		}
+	}
+}
+
+void UDDModel::DestroyObject(EAgreementType Agreement, TArray<FString>* ObjectNameGroup)
+{
+	TArray<DDBaseObject*> TargetObjectGroup;
+	switch (Agreement)
+	{
+	case EAgreementType::SelfObject:
+		GetSelfObject(ObjectNameGroup, TargetObjectGroup);
+		break;
+	case EAgreementType::OtherObject:
+		GetOtherObject(ObjectNameGroup, TargetObjectGroup);
+		break;
+	case EAgreementType::ClassOtherObject:
+		GetClassOtherObject(ObjectNameGroup, TargetObjectGroup);
+		break;
+	case EAgreementType::SelfClass:
+		GetSelfClass(ObjectNameGroup, TargetObjectGroup);
+		break;
+	case EAgreementType::OtherClass:
+		GetOtherClass(ObjectNameGroup, TargetObjectGroup);
+		break;
+	}
+	//迭代将对象添加到PreObjectDestroyGroup或者ObjectDestroyGroup
+	for (int i = 0; i < TargetObjectGroup.Num(); ++i)
+	{
+		if (!ObjectDestroyGroup.Contains(TargetObjectGroup[i]) && !PreObjectDestroyGroup.Contains(TargetObjectGroup[i]))
+		{
+			//如果是稳定状态就添加到ObjectDestroyGroup,如果是激活状态就添加到PreObjectDestroyGroup
+			switch (TargetObjectGroup[i]->RunState)
+			{
+			case EBaseObjectState::Active:
+				PreObjectDestroyGroup.Add(TargetObjectGroup[i]);
+				break;
+			case EBaseObjectState::Stable:
+				ObjectDestroyGroup.Add(TargetObjectGroup[i]);
+				break;
+			}
 		}
 	}
 }

@@ -53,6 +53,11 @@ void UDDManager::ExecuteObjectFunction(FDDObjectAgreement* Agreement, FDDParam* 
 	}
 }
 
+void UDDManager::DestroyObject(ECallResult& Result, EAgreementType Agreement, TArray<FString> ObjectNameGroup)
+{
+	Model->DestroyObject(Agreement, &ObjectNameGroup);
+}
+
 void UDDManager::RegisterObject(DDBaseObject* Object)
 {
 	//注册对象到数据组件

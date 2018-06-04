@@ -51,11 +51,19 @@ public:
 	void ExecuteRemoteFunction(FDDModuleAgreement* Agreement, FDDParam* Param);
 	//运行异地对象方法
 	void ExecuteRemoteFunction(FDDObjectAgreement* Agreement, FDDParam* Param);
+	//运行释放函数
+	void OnRealse();
 
 public:
 
 	//是否允许帧运行,如果要允许帧运行需要在构造函数或者BeginPlay设置,在UE4里默认为false
 	bool IsAllowTickEvent;
+
+	//生命状态
+	EBaseObjectLife LifeState;
+
+	//运行状态
+	EBaseObjectState RunState;
 
 protected:
 
@@ -82,8 +90,5 @@ protected:
 
 	//保存对应模组的Index
 	int32 ModuleIndex;
-
-	//生命状态
-	EBaseObjectLife LifeState;
 
 };

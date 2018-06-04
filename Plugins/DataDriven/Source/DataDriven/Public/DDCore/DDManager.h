@@ -56,6 +56,10 @@ public:
 	//执行对象方法
 	void ExecuteObjectFunction(FDDObjectAgreement* Agreement, FDDParam* Param);
 
+	//销毁对象方法,传入参数是协议类型和销毁对象
+	UFUNCTION()
+		void DestroyObject(ECallResult& Result, EAgreementType Agreement, TArray<FString> ObjectNameGroup);
+
 public:
 
 

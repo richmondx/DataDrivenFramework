@@ -86,6 +86,8 @@ bool DDBaseObject::ActiveLife()
 	case EBaseObjectLife::Register:
 		DDEnable();
 		LifeState = EBaseObjectLife::Enable;
+		//设置运行状态为稳定
+		RunState = EBaseObjectState::Stable;
 		return true;
 	}
 	return false;
@@ -98,6 +100,8 @@ bool DDBaseObject::DestroyLife()
 	case EBaseObjectLife::Enable:
 		DDDisable();
 		LifeState = EBaseObjectLife::Disable;
+		//设置运行状态为销毁
+		RunState = EBaseObjectState::Destroy;
 		break;
 	case EBaseObjectLife::Disable:
 		DDUnRegister();
@@ -106,10 +110,6 @@ bool DDBaseObject::DestroyLife()
 	case EBaseObjectLife::UnRegister:
 		DDUnLoading();
 		LifeState = EBaseObjectLife::UnLoading;
-		break;
-	case EBaseObjectLife::UnLoading:
-		DDRelease();
-		LifeState = EBaseObjectLife::Release;
 		return true;
 	}
 	return false;
@@ -133,6 +133,12 @@ void DDBaseObject::ExecuteRemoteFunction(FDDModuleAgreement* Agreement, FDDParam
 void DDBaseObject::ExecuteRemoteFunction(FDDObjectAgreement* Agreement, FDDParam* Param)
 {
 	DDGameMode->ExecuteFunction(Agreement, Param);
+}
+
+void DDBaseObject::OnRealse()
+{
+	//运行DD框架的释放函数
+	DDRelease();
 }
 
 void DDBaseObject::ObjectTick(float DeltaSeconds) {}

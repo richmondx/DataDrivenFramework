@@ -37,6 +37,9 @@ public:
 	void GetSelfClass(TArray<FString>* ObjectNameGroup, TArray<DDBaseObject*>& TargetObjectGroup);
 	//根据名字获取类以外的类的对象
 	void GetOtherClass(TArray<FString>* ObjectNameGroup, TArray<DDBaseObject*>& TargetObjectGroup);
+	
+	//销毁对象
+	void DestroyObject(EAgreementType Agreement, TArray<FString>* ObjectNameGroup);
 
 	//返回全部对象的数量
 	int32 GetObjectGroupNum() const;
@@ -65,4 +68,12 @@ protected:
 	TArray<DDBaseObject*> ObjectLifeGroup;
 	//运行Tick函数的对象集
 	TArray<DDBaseObject*> ObjectTickGroup;
+
+	//销毁生命周期的对象集
+	TArray<DDBaseObject*> ObjectDestroyGroup;
+	//释放周期函数,只执行一次就全部释放
+	TArray<DDBaseObject*> ObjectReleaseGroup;
+	//临时销毁生命周期的对象集,确保已经激活才销毁
+	TArray<DDBaseObject*> PreObjectDestroyGroup;
+
 };

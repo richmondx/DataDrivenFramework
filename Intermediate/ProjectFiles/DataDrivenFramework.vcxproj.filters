@@ -1,201 +1,196 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <ItemGroup>
-    <None Include="..\..\DataDrivenFramework.uproject" />
-    <Filter Include="Source">
-      <UniqueIdentifier>{7A3F80BA-D097-4C35-9C3F-BD000CA25C05}</UniqueIdentifier>
-    </Filter>
-    <None Include="..\..\Source\DataDrivenFramework.Target.cs">
-      <Filter>Source</Filter>
-    </None>
-    <None Include="..\..\Source\DataDrivenFrameworkEditor.Target.cs">
-      <Filter>Source</Filter>
-    </None>
-    <Filter Include="Config">
-      <UniqueIdentifier>{8497CCCD-7FBD-4A23-AFEA-22DA3011EEA7}</UniqueIdentifier>
-    </Filter>
-    <None Include="..\..\Config\DefaultEditor.ini">
-      <Filter>Config</Filter>
-    </None>
-    <None Include="..\..\Config\DefaultEngine.ini">
-      <Filter>Config</Filter>
-    </None>
-    <None Include="..\..\Config\DefaultGame.ini">
-      <Filter>Config</Filter>
-    </None>
-    <Filter Include="Plugins">
-      <UniqueIdentifier>{D6A9597B-7ED3-455A-BD68-2500A5849D6F}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Plugins\DataDriven">
-      <UniqueIdentifier>{C6731E7E-C63B-4D37-97DF-A81E3512EFC5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Plugins\DataDriven\Source">
-      <UniqueIdentifier>{F5809A3F-0232-46F4-977A-1068148E4F13}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Plugins\DataDriven\Source\DataDriven">
-      <UniqueIdentifier>{A690AC81-16D8-4B0C-ADC7-A841DD2D9BDA}</UniqueIdentifier>
-    </Filter>
-    <None Include="..\..\Plugins\DataDriven\Source\DataDriven\DataDriven.Build.cs">
-      <Filter>Plugins\DataDriven\Source\DataDriven</Filter>
-    </None>
-    <Filter Include="Plugins\DataDriven\Source\DataDriven\Private">
-      <UniqueIdentifier>{67F84B0C-08E2-4322-9978-1182738C62EB}</UniqueIdentifier>
-    </Filter>
-    <ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\DataDriven.cpp">
-      <Filter>Plugins\DataDriven\Source\DataDriven\Private</Filter>
-    </ClCompile>
-    <Filter Include="Plugins\DataDriven\Source\DataDriven\Private\BaseObject">
-      <UniqueIdentifier>{7FD2C424-8CF1-4F54-94FA-D679E0E75E78}</UniqueIdentifier>
-    </Filter>
-    <ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\BaseObject\DDActor.cpp">
-      <Filter>Plugins\DataDriven\Source\DataDriven\Private\BaseObject</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\BaseObject\DDBaseObject.cpp">
-      <Filter>Plugins\DataDriven\Source\DataDriven\Private\BaseObject</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\BaseObject\DDCharacter.cpp">
-      <Filter>Plugins\DataDriven\Source\DataDriven\Private\BaseObject</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\BaseObject\DDObject.cpp">
-      <Filter>Plugins\DataDriven\Source\DataDriven\Private\BaseObject</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\BaseObject\DDPawn.cpp">
-      <Filter>Plugins\DataDriven\Source\DataDriven\Private\BaseObject</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\BaseObject\DDUserWidget.cpp">
-      <Filter>Plugins\DataDriven\Source\DataDriven\Private\BaseObject</Filter>
-    </ClCompile>
-    <Filter Include="Plugins\DataDriven\Source\DataDriven\Private\Common">
-      <UniqueIdentifier>{B531B68A-FC17-4FEB-8287-C501BF18960C}</UniqueIdentifier>
-    </Filter>
-    <ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\Common\DDCommon.cpp">
-      <Filter>Plugins\DataDriven\Source\DataDriven\Private\Common</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\Common\DDTypes.cpp">
-      <Filter>Plugins\DataDriven\Source\DataDriven\Private\Common</Filter>
-    </ClCompile>
-    <Filter Include="Plugins\DataDriven\Source\DataDriven\Private\DDCore">
-      <UniqueIdentifier>{051AF486-EE7D-4D47-B7C6-BFC978F80431}</UniqueIdentifier>
-    </Filter>
-    <ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\DDCore\DDGameMode.cpp">
-      <Filter>Plugins\DataDriven\Source\DataDriven\Private\DDCore</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\DDCore\DDManager.cpp">
-      <Filter>Plugins\DataDriven\Source\DataDriven\Private\DDCore</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\DDCore\DDMessage.cpp">
-      <Filter>Plugins\DataDriven\Source\DataDriven\Private\DDCore</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\DDCore\DDModel.cpp">
-      <Filter>Plugins\DataDriven\Source\DataDriven\Private\DDCore</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\DDCore\DDModule.cpp">
-      <Filter>Plugins\DataDriven\Source\DataDriven\Private\DDCore</Filter>
-    </ClCompile>
-    <Filter Include="Plugins\DataDriven\Source\DataDriven\Public">
-      <UniqueIdentifier>{63D60FA6-9C9C-4119-A80B-8A0BFDCEDDA4}</UniqueIdentifier>
-    </Filter>
-    <ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\DataDriven.h">
-      <Filter>Plugins\DataDriven\Source\DataDriven\Public</Filter>
-    </ClInclude>
-    <Filter Include="Plugins\DataDriven\Source\DataDriven\Public\BaseObject">
-      <UniqueIdentifier>{2C94CB19-07CA-412E-B7C8-F7201E4E87E0}</UniqueIdentifier>
-    </Filter>
-    <ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\BaseObject\DDActor.h">
-      <Filter>Plugins\DataDriven\Source\DataDriven\Public\BaseObject</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\BaseObject\DDBaseObject.h">
-      <Filter>Plugins\DataDriven\Source\DataDriven\Public\BaseObject</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\BaseObject\DDCharacter.h">
-      <Filter>Plugins\DataDriven\Source\DataDriven\Public\BaseObject</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\BaseObject\DDObject.h">
-      <Filter>Plugins\DataDriven\Source\DataDriven\Public\BaseObject</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\BaseObject\DDPawn.h">
-      <Filter>Plugins\DataDriven\Source\DataDriven\Public\BaseObject</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\BaseObject\DDUserWidget.h">
-      <Filter>Plugins\DataDriven\Source\DataDriven\Public\BaseObject</Filter>
-    </ClInclude>
-    <Filter Include="Plugins\DataDriven\Source\DataDriven\Public\Common">
-      <UniqueIdentifier>{40684EA5-5F39-482D-A731-816E6DCD7A4E}</UniqueIdentifier>
-    </Filter>
-    <ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\Common\DDCommon.h">
-      <Filter>Plugins\DataDriven\Source\DataDriven\Public\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\Common\DDTypes.h">
-      <Filter>Plugins\DataDriven\Source\DataDriven\Public\Common</Filter>
-    </ClInclude>
-    <Filter Include="Plugins\DataDriven\Source\DataDriven\Public\DDCore">
-      <UniqueIdentifier>{8ABE779B-3484-4078-962D-E806890A89FE}</UniqueIdentifier>
-    </Filter>
-    <ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\DDCore\DDGameMode.h">
-      <Filter>Plugins\DataDriven\Source\DataDriven\Public\DDCore</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\DDCore\DDManager.h">
-      <Filter>Plugins\DataDriven\Source\DataDriven\Public\DDCore</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\DDCore\DDMessage.h">
-      <Filter>Plugins\DataDriven\Source\DataDriven\Public\DDCore</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\DDCore\DDModel.h">
-      <Filter>Plugins\DataDriven\Source\DataDriven\Public\DDCore</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\DDCore\DDModule.h">
-      <Filter>Plugins\DataDriven\Source\DataDriven\Public\DDCore</Filter>
-    </ClInclude>
-    <None Include="..\..\Plugins\DataDriven\DataDriven.uplugin">
-      <Filter>Plugins\DataDriven</Filter>
-    </None>
-    <Filter Include="Plugins\DataDriven\Resources">
-      <UniqueIdentifier>{13DE50C4-9ED0-4E58-8460-BD4BABA34911}</UniqueIdentifier>
-    </Filter>
-    <None Include="..\..\Plugins\DataDriven\Resources\Icon128.png">
-      <Filter>Plugins\DataDriven\Resources</Filter>
-    </None>
-    <Filter Include="Source\DataDrivenFramework">
-      <UniqueIdentifier>{96A8BB2C-1724-4F78-8BDB-D1C856CF5293}</UniqueIdentifier>
-    </Filter>
-    <None Include="..\..\Source\DataDrivenFramework\DataDrivenFramework.Build.cs">
-      <Filter>Source\DataDrivenFramework</Filter>
-    </None>
-    <ClCompile Include="..\..\Source\DataDrivenFramework\DataDrivenFramework.cpp">
-      <Filter>Source\DataDrivenFramework</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\DataDrivenFramework\DataDrivenFramework.h">
-      <Filter>Source\DataDrivenFramework</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\DataDrivenFramework\DataDrivenFrameworkGameModeBase.cpp">
-      <Filter>Source\DataDrivenFramework</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\DataDrivenFramework\DataDrivenFrameworkGameModeBase.h">
-      <Filter>Source\DataDrivenFramework</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Filter Include="Plugins\DataDriven\Source\DataDriven\Public\Default">
-      <UniqueIdentifier>{b9c97c41-d5d6-417b-ad57-085c6fa9ab66}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Plugins\DataDriven\Source\DataDriven\Private\Default">
-      <UniqueIdentifier>{4c5c02bc-67bb-4703-919d-7db0eb039d4d}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\Default\DDCenterModule.h">
-      <Filter>Plugins\DataDriven\Source\DataDriven\Public\Default</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\Common\DDDefine.h">
-      <Filter>Plugins\DataDriven\Source\DataDriven\Public\Common</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\Default\DDCenterModule.cpp">
-      <Filter>Plugins\DataDriven\Source\DataDriven\Private\Default</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\Common\DDDefine.cpp">
-      <Filter>Plugins\DataDriven\Source\DataDriven\Private\Common</Filter>
-    </ClCompile>
-  </ItemGroup>
+	<ItemGroup>
+		<None Include="..\..\DataDrivenFramework.uproject" />
+		<Filter Include="Source">
+			<UniqueIdentifier>{8CEED8B4-E68A-430C-859A-04C1465A2E74}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Source\DataDrivenFramework.Target.cs">
+			<Filter>Source</Filter>
+		</None >
+		<None Include="..\..\Source\DataDrivenFrameworkEditor.Target.cs">
+			<Filter>Source</Filter>
+		</None >
+		<Filter Include="Config">
+			<UniqueIdentifier>{518466A3-A89B-4BBC-B364-AC1E74C55BBE}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Config\DefaultEditor.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultEngine.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultGame.ini">
+			<Filter>Config</Filter>
+		</None >
+		<Filter Include="Plugins">
+			<UniqueIdentifier>{71C165FA-D4C4-415B-A118-21A9ABE48ECE}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="Plugins\DataDriven">
+			<UniqueIdentifier>{44BDF38E-9B3C-42C1-B43A-5E56FE7ED6F9}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="Plugins\DataDriven\Source">
+			<UniqueIdentifier>{2A0091B0-2DB9-42C1-BB97-1B35EA882D35}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="Plugins\DataDriven\Source\DataDriven">
+			<UniqueIdentifier>{EA3A539F-FC30-451B-8F89-7FB117592971}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Plugins\DataDriven\Source\DataDriven\DataDriven.Build.cs">
+			<Filter>Plugins\DataDriven\Source\DataDriven</Filter>
+		</None >
+		<Filter Include="Plugins\DataDriven\Source\DataDriven\Private">
+			<UniqueIdentifier>{0F0EB465-5EB8-4237-B0FC-CE43F01E3642}</UniqueIdentifier>
+		</Filter>
+		<ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\DataDriven.cpp">
+			<Filter>Plugins\DataDriven\Source\DataDriven\Private</Filter>
+		</ClCompile >
+		<Filter Include="Plugins\DataDriven\Source\DataDriven\Private\BaseObject">
+			<UniqueIdentifier>{F7641ABE-FAE8-4D01-83CC-242EB5E23938}</UniqueIdentifier>
+		</Filter>
+		<ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\BaseObject\DDActor.cpp">
+			<Filter>Plugins\DataDriven\Source\DataDriven\Private\BaseObject</Filter>
+		</ClCompile >
+		<ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\BaseObject\DDBaseObject.cpp">
+			<Filter>Plugins\DataDriven\Source\DataDriven\Private\BaseObject</Filter>
+		</ClCompile >
+		<ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\BaseObject\DDCharacter.cpp">
+			<Filter>Plugins\DataDriven\Source\DataDriven\Private\BaseObject</Filter>
+		</ClCompile >
+		<ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\BaseObject\DDObject.cpp">
+			<Filter>Plugins\DataDriven\Source\DataDriven\Private\BaseObject</Filter>
+		</ClCompile >
+		<ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\BaseObject\DDPawn.cpp">
+			<Filter>Plugins\DataDriven\Source\DataDriven\Private\BaseObject</Filter>
+		</ClCompile >
+		<ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\BaseObject\DDUserWidget.cpp">
+			<Filter>Plugins\DataDriven\Source\DataDriven\Private\BaseObject</Filter>
+		</ClCompile >
+		<Filter Include="Plugins\DataDriven\Source\DataDriven\Private\Common">
+			<UniqueIdentifier>{38388B37-50FB-4D47-B292-8CCEF2521184}</UniqueIdentifier>
+		</Filter>
+		<ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\Common\DDCommon.cpp">
+			<Filter>Plugins\DataDriven\Source\DataDriven\Private\Common</Filter>
+		</ClCompile >
+		<ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\Common\DDDefine.cpp">
+			<Filter>Plugins\DataDriven\Source\DataDriven\Private\Common</Filter>
+		</ClCompile >
+		<ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\Common\DDTypes.cpp">
+			<Filter>Plugins\DataDriven\Source\DataDriven\Private\Common</Filter>
+		</ClCompile >
+		<Filter Include="Plugins\DataDriven\Source\DataDriven\Private\DDCore">
+			<UniqueIdentifier>{C05660C1-5B86-48F9-87FE-745309173020}</UniqueIdentifier>
+		</Filter>
+		<ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\DDCore\DDGameMode.cpp">
+			<Filter>Plugins\DataDriven\Source\DataDriven\Private\DDCore</Filter>
+		</ClCompile >
+		<ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\DDCore\DDManager.cpp">
+			<Filter>Plugins\DataDriven\Source\DataDriven\Private\DDCore</Filter>
+		</ClCompile >
+		<ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\DDCore\DDMessage.cpp">
+			<Filter>Plugins\DataDriven\Source\DataDriven\Private\DDCore</Filter>
+		</ClCompile >
+		<ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\DDCore\DDModel.cpp">
+			<Filter>Plugins\DataDriven\Source\DataDriven\Private\DDCore</Filter>
+		</ClCompile >
+		<ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\DDCore\DDModule.cpp">
+			<Filter>Plugins\DataDriven\Source\DataDriven\Private\DDCore</Filter>
+		</ClCompile >
+		<Filter Include="Plugins\DataDriven\Source\DataDriven\Private\Default">
+			<UniqueIdentifier>{698D25F4-9976-4E6A-8684-3EF86575DD0C}</UniqueIdentifier>
+		</Filter>
+		<ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\Default\DDCenterModule.cpp">
+			<Filter>Plugins\DataDriven\Source\DataDriven\Private\Default</Filter>
+		</ClCompile >
+		<Filter Include="Plugins\DataDriven\Source\DataDriven\Public">
+			<UniqueIdentifier>{70D52C7A-2C2F-469D-AE1C-46C976388F08}</UniqueIdentifier>
+		</Filter>
+		<ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\DataDriven.h">
+			<Filter>Plugins\DataDriven\Source\DataDriven\Public</Filter>
+		</ClInclude >
+		<Filter Include="Plugins\DataDriven\Source\DataDriven\Public\BaseObject">
+			<UniqueIdentifier>{844AF704-0536-45FE-96C1-700FE9F11CEE}</UniqueIdentifier>
+		</Filter>
+		<ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\BaseObject\DDActor.h">
+			<Filter>Plugins\DataDriven\Source\DataDriven\Public\BaseObject</Filter>
+		</ClInclude >
+		<ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\BaseObject\DDBaseObject.h">
+			<Filter>Plugins\DataDriven\Source\DataDriven\Public\BaseObject</Filter>
+		</ClInclude >
+		<ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\BaseObject\DDCharacter.h">
+			<Filter>Plugins\DataDriven\Source\DataDriven\Public\BaseObject</Filter>
+		</ClInclude >
+		<ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\BaseObject\DDObject.h">
+			<Filter>Plugins\DataDriven\Source\DataDriven\Public\BaseObject</Filter>
+		</ClInclude >
+		<ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\BaseObject\DDPawn.h">
+			<Filter>Plugins\DataDriven\Source\DataDriven\Public\BaseObject</Filter>
+		</ClInclude >
+		<ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\BaseObject\DDUserWidget.h">
+			<Filter>Plugins\DataDriven\Source\DataDriven\Public\BaseObject</Filter>
+		</ClInclude >
+		<Filter Include="Plugins\DataDriven\Source\DataDriven\Public\Common">
+			<UniqueIdentifier>{D3DEEDF4-1867-4D31-B8D3-E0D1F399C5FC}</UniqueIdentifier>
+		</Filter>
+		<ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\Common\DDCommon.h">
+			<Filter>Plugins\DataDriven\Source\DataDriven\Public\Common</Filter>
+		</ClInclude >
+		<ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\Common\DDDefine.h">
+			<Filter>Plugins\DataDriven\Source\DataDriven\Public\Common</Filter>
+		</ClInclude >
+		<ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\Common\DDTypes.h">
+			<Filter>Plugins\DataDriven\Source\DataDriven\Public\Common</Filter>
+		</ClInclude >
+		<Filter Include="Plugins\DataDriven\Source\DataDriven\Public\DDCore">
+			<UniqueIdentifier>{CB0C17E0-5F05-4027-BD1D-E6419419B2E5}</UniqueIdentifier>
+		</Filter>
+		<ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\DDCore\DDGameMode.h">
+			<Filter>Plugins\DataDriven\Source\DataDriven\Public\DDCore</Filter>
+		</ClInclude >
+		<ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\DDCore\DDManager.h">
+			<Filter>Plugins\DataDriven\Source\DataDriven\Public\DDCore</Filter>
+		</ClInclude >
+		<ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\DDCore\DDMessage.h">
+			<Filter>Plugins\DataDriven\Source\DataDriven\Public\DDCore</Filter>
+		</ClInclude >
+		<ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\DDCore\DDModel.h">
+			<Filter>Plugins\DataDriven\Source\DataDriven\Public\DDCore</Filter>
+		</ClInclude >
+		<ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\DDCore\DDModule.h">
+			<Filter>Plugins\DataDriven\Source\DataDriven\Public\DDCore</Filter>
+		</ClInclude >
+		<Filter Include="Plugins\DataDriven\Source\DataDriven\Public\Default">
+			<UniqueIdentifier>{F43D7225-86C9-42C0-B375-C24DC260F718}</UniqueIdentifier>
+		</Filter>
+		<ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\Default\DDCenterModule.h">
+			<Filter>Plugins\DataDriven\Source\DataDriven\Public\Default</Filter>
+		</ClInclude >
+		<None Include="..\..\Plugins\DataDriven\DataDriven.uplugin">
+			<Filter>Plugins\DataDriven</Filter>
+		</None >
+		<Filter Include="Plugins\DataDriven\Resources">
+			<UniqueIdentifier>{46C9A1F5-AB1C-4F88-96C1-772AC23136C5}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Plugins\DataDriven\Resources\Icon128.png">
+			<Filter>Plugins\DataDriven\Resources</Filter>
+		</None >
+		<Filter Include="Source\DataDrivenFramework">
+			<UniqueIdentifier>{BF977780-8A8D-4FFC-A469-39770232DAEB}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Source\DataDrivenFramework\DataDrivenFramework.Build.cs">
+			<Filter>Source\DataDrivenFramework</Filter>
+		</None >
+		<ClCompile Include="..\..\Source\DataDrivenFramework\DataDrivenFramework.cpp">
+			<Filter>Source\DataDrivenFramework</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\DataDrivenFramework\DataDrivenFramework.h">
+			<Filter>Source\DataDrivenFramework</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\DataDrivenFramework\DataDrivenFrameworkGameModeBase.cpp">
+			<Filter>Source\DataDrivenFramework</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\DataDrivenFramework\DataDrivenFrameworkGameModeBase.h">
+			<Filter>Source\DataDrivenFramework</Filter>
+		</ClInclude >
+	</ItemGroup>
 </Project>

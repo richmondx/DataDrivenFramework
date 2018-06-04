@@ -16,9 +16,6 @@ public:
 	// Sets default values for this pawn's properties
 	ADDPawn();
 
-	//构造函数与属性加载后调用,在这里将Object注册到框架
-	virtual void PostLoad() override;
-
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 

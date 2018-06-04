@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "Common/DDTypes.h"
 #include "DDDefine.generated.h"
 
 /**
@@ -16,5 +17,9 @@ class DATADRIVEN_API UDDDefine : public UObject
 	
 
 };
+
+
+	
+
 
 

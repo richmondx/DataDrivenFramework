@@ -9,19 +9,21 @@
 
 
 /**
- * 
+ *
  */
 UCLASS()
-class DATADRIVEN_API UDDObject : public UObject , public DDBaseObject
+class DATADRIVEN_API UDDObject : public UObject, public DDBaseObject
 {
 	GENERATED_BODY()
-	
+
 public:
 
-	UDDObject();
+	
 
-	//构造函数与属性加载后调用,在这里将Object注册到框架
-	virtual void PostLoad() override;
 	
-	
+
+public:
+
+
+
 };

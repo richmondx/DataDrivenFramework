@@ -5,14 +5,6 @@
 
 
 
-UDDObject::UDDObject()
-{
 
-}
 
-void UDDObject::PostLoad()
-{
-	Super::PostLoad();
-	//将自己注册到框架
-	RegisterObject((UObject*)this);
-}
+

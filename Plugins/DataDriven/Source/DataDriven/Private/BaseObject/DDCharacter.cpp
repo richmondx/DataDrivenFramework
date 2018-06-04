@@ -11,13 +11,6 @@ ADDCharacter::ADDCharacter()
 
 }
 
-void ADDCharacter::PostLoad()
-{
-	Super::PostLoad();
-
-	RegisterObject((UObject*)this);
-}
-
 // Called when the game starts or when spawned
 void ADDCharacter::BeginPlay()
 {

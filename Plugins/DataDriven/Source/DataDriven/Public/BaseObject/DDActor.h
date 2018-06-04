@@ -18,18 +18,18 @@ public:
 	// Sets default values for this actor's properties
 	ADDActor();
 
-	//构造函数与属性加载后调用,在这里将Object注册到框架
-	virtual void PostLoad() override;
-
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+public:
+
+	//模组名字
+	UPROPERTY(EditAnywhere, Category = "DataDriven")
+		FString ModuleName;
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 
-
-	
-	
 };

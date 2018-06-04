@@ -10,14 +10,15 @@
 class UDDManager;
 class UDDModel;
 class UDDMessage;
+class DDBaseObject;
 
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class DATADRIVEN_API UDDModule : public USceneComponent
 {
 	GENERATED_BODY()
 
-public:	
+public:
 	// Sets default values for this component's properties
 	UDDModule();
 
@@ -27,39 +28,37 @@ public:
 	//Module的Tick函数
 	virtual void ModuleTick(float DeltaSeconds);
 
-	//生命周期
-	virtual void Init();
-	virtual void Register();
-	virtual void Active();
-	virtual void Disable();
-	virtual void UnRegister();
-	virtual void Release();
+	bool RegisterObject(DDBaseObject* Object);
 
-	//迭代调动模组的反射方法
-	virtual void IterCallFunction(UDDModule* Module, FString FunctionName, void* Param);
-	
-	
+	void CreateManager();
+
+	void ChangeModuleType(FString ModuleType);
+
+	//调动模组方法
+	void ExecuteFunction(FDDModuleAgreement* Agreement, FDDParam* Param);
+	//调用对象方法
+	void ExecuteFunction(FDDObjectAgreement* Agreement, FDDParam* Param);
+
 public:
 
 	UPROPERTY(EditAnywhere, NoClear, BlueprintReadOnly, Category = "DataDriven")
 		TSubclassOf<UDDManager> ManagerClass;
 
-	UPROPERTY(EditAnywhere, NoClear, BlueprintReadOnly, Category = "DataDriven")
-		TSubclassOf<UDDModel> ModelClass;
-
-	UPROPERTY(EditAnywhere, NoClear, BlueprintReadOnly, Category = "DataDriven")
-		TSubclassOf<UDDMessage> MessageClass;
+	UPROPERTY(VisibleAnywhere, Category = "DataDriven")
+		int32 ModuleIndex;
 
 	//管理器
 	UDDManager* Manager;
 
 protected:
 
-	
+
 
 protected:
 
 
-		
-	
+
+
 };
+
+

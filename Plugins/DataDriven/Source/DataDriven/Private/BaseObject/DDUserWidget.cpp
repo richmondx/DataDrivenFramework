@@ -5,17 +5,10 @@
 
 
 
-UDDUserWidget::UDDUserWidget(const FObjectInitializer& ObjectInitializer) : UUserWidget(ObjectInitializer)
-{
-
-}
-
-void UDDUserWidget::PostLoad()
-{
-	Super::PostLoad();
-
-	RegisterObject((UObject*)this);
-}
+//UDDUserWidget::UDDUserWidget(const FObjectInitializer& ObjectInitializer) : UUserWidget(ObjectInitializer)
+//{
+//
+//}
 
 bool UDDUserWidget::Initialize()
 {

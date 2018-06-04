@@ -11,13 +11,6 @@ ADDPawn::ADDPawn()
 
 }
 
-void ADDPawn::PostLoad()
-{
-	Super::PostLoad();
-
-	RegisterObject((UObject*)this);
-}
-
 // Called when the game starts or when spawned
 void ADDPawn::BeginPlay()
 {

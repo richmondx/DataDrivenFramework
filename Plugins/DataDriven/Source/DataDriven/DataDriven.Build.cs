@@ -40,7 +40,9 @@ public class DataDriven : ModuleRules
 				"Engine",
 				"Slate",
 				"SlateCore",
-                "UMG"
+                "UMG",
+                "AIModule",
+                "GameplayTasks",
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);

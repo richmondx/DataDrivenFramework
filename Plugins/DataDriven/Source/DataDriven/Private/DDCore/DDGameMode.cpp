@@ -1,8 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "DDGameMode.h"
-#include "Default/DDCenterModule.h"
-#include "DDBaseObject.h"
+#include "DDDefault/DDCenterModule.h"
+#include "DDOO.h"
 #include "Components/SceneComponent.h"
 
 
@@ -23,8 +23,6 @@ void ADDGameMode::PostInitializeComponents()
 {
 	//先调用一次父类
 	Super::PostInitializeComponents();
-	//注册GameMode和世界到UDDCommon
-	DDHelper::DDGameMode = this;
 	//在游戏运行之前必须进行一次模组	ID的设定
 	Center->IterChangeModuleType(Center, ModuleType);
 	//创建Manager组件
@@ -36,24 +34,32 @@ void ADDGameMode::BeginPlay()
 	Super::BeginPlay();
 
 	//调用中央模组的BeginPlay迭代
-	Center->IterModuleBeginPlay(Center);
+	Center->IterPreModuleBeginPlay(Center);
 }
 
 void ADDGameMode::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);
 
-	//调用中央模组的Tick迭代
-	Center->IterModuleTick(Center, DeltaSeconds);
+	if (!IsBeginPlay) {
+		//调用中央模组的BeginPlay迭代
+		Center->IterModuleBeginPlay(Center);
+		//第一帧运行全体的BeginPlay函数
+		IsBeginPlay = true;
+	}
+	else {
+		//调用中央模组的Tick迭代
+		Center->IterModuleTick(Center, DeltaSeconds);
+	}
 }
 
 
-void ADDGameMode::ExecuteFunction(FDDModuleAgreement* Agreement, FDDParam* Param)
+void ADDGameMode::ExecuteFunction(DDModuleAgreement Agreement, DDParam* Param)
 {
 	Center->IterExecuteFunction(Center, Agreement, Param);
 }
 
-void ADDGameMode::ExecuteFunction(FDDObjectAgreement* Agreement, FDDParam* Param)
+void ADDGameMode::ExecuteFunction(DDObjectAgreement Agreement, DDParam* Param)
 {
 	Center->IterExecuteFunction(Center, Agreement, Param);
 }
@@ -71,7 +77,7 @@ void ADDGameMode::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedE
 }
 #endif
 
-bool ADDGameMode::RegisterToModule(DDBaseObject* Object)
+bool ADDGameMode::RegisterToModule(IDDOO* Object)
 {
 	//调用中央模组的迭代注册对象功能
 	return Center->IterRegisterToModule(Center, Object);

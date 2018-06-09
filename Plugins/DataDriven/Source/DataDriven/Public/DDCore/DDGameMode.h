@@ -4,12 +4,12 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
-#include "Common/DDCommon.h"
+#include "DDCommon/DDCommon.h"
 #include "DDGameMode.generated.h"
 
 class USceneComponent;
 class UDDCenterModule;
-class DDBaseObject;
+class IDDOO;
 /**
  * 
  */
@@ -27,9 +27,9 @@ public:
 	virtual void Tick(float DeltaSeconds) override;
 
 	//调动模组方法
-	void ExecuteFunction(FDDModuleAgreement* Agreement, FDDParam* Param);
+	void ExecuteFunction(DDModuleAgreement Agreement, DDParam* Param);
 	//调用对象方法
-	void ExecuteFunction(FDDObjectAgreement* Agreement, FDDParam* Param);
+	void ExecuteFunction(DDObjectAgreement Agreement, DDParam* Param);
 
 #if WITH_EDITOR
 	//属性修改方法
@@ -37,7 +37,7 @@ public:
 #endif
 
 	//提供给资源们进行注册
-	bool RegisterToModule(DDBaseObject* Object);
+	bool RegisterToModule(IDDOO* Object);
 
 public:
 
@@ -54,5 +54,10 @@ public:
 protected:
 
 	virtual void BeginPlay() override;
+
+protected:
+
+	//是否已经运行BeginPlay函数
+	bool IsBeginPlay;
 
 };

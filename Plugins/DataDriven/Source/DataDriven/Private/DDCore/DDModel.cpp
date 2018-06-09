@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "DDModel.h"
-#include "DDBaseObject.h"
+#include "DDOO.h"
 #include "DDModule.h"
 
 
@@ -17,7 +17,7 @@
 //	ChildModule.Add(ChildMod->ModuleIndex, ChildMod);
 //}
 
-void UDDModel::RegisterObject(DDBaseObject* ObjectInst)
+void UDDModel::RegisterObject(IDDOO* ObjectInst)
 {
 	//如果不重复就添加到模组对象
 	if (!ObjectGroup.Contains(ObjectInst->GetObjectName()))
@@ -30,7 +30,7 @@ void UDDModel::RegisterObject(DDBaseObject* ObjectInst)
 			ObjectClassGroup.Find(ObejctClassName)->Add(ObjectInst);
 		}
 		else {
-			TArray<DDBaseObject*> ObejctArray;
+			TArray<IDDOO*> ObejctArray;
 			ObjectClassGroup.Add(ObejctClassName, ObejctArray);
 			ObjectClassGroup.Find(ObejctClassName)->Add(ObjectInst);
 		}
@@ -46,7 +46,7 @@ void UDDModel::RegisterObject(DDBaseObject* ObjectInst)
 void UDDModel::ModelTick(float DeltaSeconds)
 {
 	//运行生命周期组的生命周期函数
-	TArray<DDBaseObject*> TempObjectGroup;
+	TArray<IDDOO*> TempObjectGroup;
 	for (int i = 0; i < ObjectLifeGroup.Num(); ++i)
 	{
 		//如果激活成功
@@ -101,31 +101,31 @@ void UDDModel::ModelTick(float DeltaSeconds)
 		if (ObjectDestroyGroup[i]->DestroyLife()) {
 			//添加到释放对象组
 			ObjectReleaseGroup.Add(ObjectDestroyGroup[i]);
-			//从ObjectGroup和ObjectClassGroup移除数据
+			//从ObjectGroup与ObjectTickGroup和ObjectClassGroup移除数据
 			ObjectGroup.Remove(ObjectDestroyGroup[i]->GetObjectName());
+			ObjectTickGroup.Remove(ObjectDestroyGroup[i]);
 			if (ObjectClassGroup.Contains(ObjectDestroyGroup[i]->GetClassName())) ObjectClassGroup.Find(ObjectDestroyGroup[i]->GetClassName())->Remove(ObjectDestroyGroup[i]);
 		}
 	}
-
 }
 
-void UDDModel::GetSelfObject(TArray<FString>* ObjectNameGroup, TArray<DDBaseObject*>& TargetObjectGroup)
+void UDDModel::GetSelfObject(TArray<FString> ObjectNameGroup, TArray<IDDOO*>& TargetObjectGroup)
 {
-	for (int i = 0; i < (*ObjectNameGroup).Num(); ++i)
+	for (int i = 0; i < ObjectNameGroup.Num(); ++i)
 	{
-		if (ObjectGroup.Contains((*ObjectNameGroup)[i])) TargetObjectGroup.Add(*ObjectGroup.Find((*ObjectNameGroup)[i]));
+		if (ObjectGroup.Contains(ObjectNameGroup[i])) TargetObjectGroup.Add(*ObjectGroup.Find(ObjectNameGroup[i]));
 	}
 }
 
-int32 UDDModel::GetOtherObject(TArray<FString>* ObjectNameGroup, TArray<DDBaseObject*>& TargetObjectGroup)
+int32 UDDModel::GetOtherObject(TArray<FString> ObjectNameGroup, TArray<IDDOO*>& TargetObjectGroup)
 {
 	//把对象组里与传入对象名组不相同的对象全部存到TargetObjectGroup
-	for (TMap<FString, DDBaseObject*>::TIterator It(ObjectGroup); It; ++It) {
+	for (TMap<FString, IDDOO*>::TIterator It(ObjectGroup); It; ++It) {
 		bool IsSame = false;
-		for (int i = 0; i < (*ObjectNameGroup).Num(); ++i)
+		for (int i = 0; i < ObjectNameGroup.Num(); ++i)
 		{
 			//只要检查出相同的就马上跳出
-			if ((*ObjectNameGroup)[i].Equals(It->Key)) { IsSame = true; break; }
+			if (ObjectNameGroup[i].Equals(It->Key)) { IsSame = true; break; }
 		}
 		if (!IsSame) TargetObjectGroup.Add(It->Value);
 	}
@@ -133,18 +133,18 @@ int32 UDDModel::GetOtherObject(TArray<FString>* ObjectNameGroup, TArray<DDBaseOb
 	return GetObjectGroupNum();
 }
 
-int32 UDDModel::GetClassOtherObject(TArray<FString>* ObjectNameGroup, TArray<DDBaseObject*>& TargetObjectGroup)
+int32 UDDModel::GetClassOtherObject(TArray<FString> ObjectNameGroup, TArray<IDDOO*>& TargetObjectGroup)
 {
 	//现获取类名
-	FString ObjectClassName = (*ObjectGroup.Find((*ObjectNameGroup)[0]))->GetClassName();
+	FString ObjectClassName = (*ObjectGroup.Find(ObjectNameGroup[0]))->GetClassName();
 	//迭代类组对象
-	for (TArray<DDBaseObject*>::TIterator It(*ObjectClassGroup.Find(ObjectClassName)); It; ++It)
+	for (TArray<IDDOO*>::TIterator It(*ObjectClassGroup.Find(ObjectClassName)); It; ++It)
 	{
 		bool IsSame = false;
-		for (int i = 0; i < (*ObjectNameGroup).Num(); ++i)
+		for (int i = 0; i < ObjectNameGroup.Num(); ++i)
 		{
 			//如果存储的对象相同就跳出
-			if (*It == *ObjectGroup.Find((*ObjectNameGroup)[i])) { IsSame = true; break; }
+			if (*It == *ObjectGroup.Find(ObjectNameGroup[i])) { IsSame = true; break; }
 		}
 		if (!IsSame) TargetObjectGroup.Add(*It);
 	}
@@ -152,38 +152,38 @@ int32 UDDModel::GetClassOtherObject(TArray<FString>* ObjectNameGroup, TArray<DDB
 	return GetClassObjectGroupNum(ObjectClassName);
 }
 
-void UDDModel::GetSelfClass(TArray<FString>* ObjectNameGroup, TArray<DDBaseObject*>& TargetObjectGroup)
+void UDDModel::GetSelfClass(TArray<FString> ObjectNameGroup, TArray<IDDOO*>& TargetObjectGroup)
 {
-	for (int i = 0; i < (*ObjectNameGroup).Num(); ++i) {
+	for (int i = 0; i < ObjectNameGroup.Num(); ++i) {
 		//如果不包含这个类,直接跳到下一个循环
-		if (!ObjectClassGroup.Contains((*ObjectNameGroup)[i])) continue;
+		if (!ObjectClassGroup.Contains(ObjectNameGroup[i])) continue;
 		//循环这个类去填入TargetObjectGroup
-		for (TArray<DDBaseObject*>::TIterator It(*ObjectClassGroup.Find((*ObjectNameGroup)[i])); It; ++It)
+		for (TArray<IDDOO*>::TIterator It(*ObjectClassGroup.Find(ObjectNameGroup[i])); It; ++It)
 		{
 			TargetObjectGroup.Add(*It);
 		}
 	}
 }
 
-void UDDModel::GetOtherClass(TArray<FString>* ObjectNameGroup, TArray<DDBaseObject*>& TargetObjectGroup)
+void UDDModel::GetOtherClass(TArray<FString> ObjectNameGroup, TArray<IDDOO*>& TargetObjectGroup)
 {
-	for (TMap<FString, TArray<DDBaseObject*>>::TIterator It(ObjectClassGroup); It; ++It) {
+	for (TMap<FString, TArray<IDDOO*>>::TIterator It(ObjectClassGroup); It; ++It) {
 		bool IsSame = false;
-		for (int i = 0; i < (*ObjectNameGroup).Num(); ++i) {
-			if ((*ObjectNameGroup)[i].Equals(It->Key)) { IsSame = true; break; }
+		for (int i = 0; i < ObjectNameGroup.Num(); ++i) {
+			if (ObjectNameGroup[i].Equals(It->Key)) { IsSame = true; break; }
 		}
 		//如果迭代到的这个类组与传入的类名相同,跳到下一个循环
 		if (IsSame) continue;
 		//如果迭代到的这个类组与传入的类名不相同,添加到TargetObjectGroup
-		for (TArray<DDBaseObject*>::TIterator Ih(It->Value); Ih; ++Ih) {
+		for (TArray<IDDOO*>::TIterator Ih(It->Value); Ih; ++Ih) {
 			TargetObjectGroup.Add(*Ih);
 		}
 	}
 }
 
-void UDDModel::DestroyObject(EAgreementType Agreement, TArray<FString>* ObjectNameGroup)
+void UDDModel::DestroyObject(EAgreementType Agreement, TArray<FString> ObjectNameGroup)
 {
-	TArray<DDBaseObject*> TargetObjectGroup;
+	TArray<IDDOO*> TargetObjectGroup;
 	switch (Agreement)
 	{
 	case EAgreementType::SelfObject:
@@ -237,7 +237,7 @@ void UDDModel::RemoveObject(FString ObjectName)
 	//如果没有这个对象,直接返回
 	if (!ObjectGroup.Contains(ObjectName)) return;
 	//先获取对象指针
-	DDBaseObject* TargetObject = *ObjectGroup.Find(ObjectName);
+	IDDOO* TargetObject = *ObjectGroup.Find(ObjectName);
 	//从生命组移除对象
 	ObjectLifeGroup.Remove(TargetObject);
 	//从帧组移除对象
@@ -253,7 +253,7 @@ void UDDModel::RemoveObjectClass(FString ObjectClassName)
 	//如果没有这个对象类,直接返回
 	if (!ObjectClassGroup.Contains(ObjectClassName)) return;
 	//获取类对象数组
-	TArray<DDBaseObject*>* TargetClassGroup = ObjectClassGroup.Find(ObjectClassName);
+	TArray<IDDOO*>* TargetClassGroup = ObjectClassGroup.Find(ObjectClassName);
 	//迭代移除对象
 	for (int i = 0; i < (*TargetClassGroup).Num(); ++i) {
 		//从生命组与帧组移除对象

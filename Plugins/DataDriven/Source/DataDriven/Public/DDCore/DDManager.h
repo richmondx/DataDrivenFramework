@@ -4,11 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
-#include "Common/DDCommon.h"
+#include "DDCommon/DDCommon.h"
 #include "DDManager.generated.h"
 
 class UDDModule;
-class DDBaseObject;
+class IDDOO;
 class UDDMessage;
 class UDDModel;
 
@@ -31,18 +31,18 @@ public:
 	virtual void ManagerTick(float DeltaSeconds);
 
 	//添加对象
-	void RegisterObject(DDBaseObject* Object);
+	void RegisterObject(IDDOO* Object);
 
 	//执行单个对象方法
-	void ExecuteSelfObject(FDDObjectAgreement* Agreement, FDDParam* Param);
+	void ExecuteSelfObject(DDObjectAgreement Agreement, DDParam* Param);
 	//执行其余对象方法
-	void ExecuteOtherObject(FDDObjectAgreement* Agreement, FDDParam* Param);
+	void ExecuteOtherObject(DDObjectAgreement Agreement, DDParam* Param);
 	//支持相同类的区域对象方法
-	void ExecuteClassOtherObject(FDDObjectAgreement* Agreement, FDDParam* Param);
+	void ExecuteClassOtherObject(DDObjectAgreement Agreement, DDParam* Param);
 	//执行类对象的方法
-	void ExecuteSelfClass(FDDObjectAgreement* Agreement, FDDParam* Param);
+	void ExecuteSelfClass(DDObjectAgreement Agreement, DDParam* Param);
 	//执行其他类对象的方法
-	void ExecuteOtherClass(FDDObjectAgreement* Agreement, FDDParam* Param);
+	void ExecuteOtherClass(DDObjectAgreement Agreement, DDParam* Param);
 
 	////注册父类模组
 	//void RegisterSuperModule(UDDModule* SuperMod);
@@ -54,11 +54,11 @@ public:
 	virtual void InitManagerComponent();
 
 	//执行对象方法
-	void ExecuteObjectFunction(FDDObjectAgreement* Agreement, FDDParam* Param);
+	void ExecuteObjectFunction(DDObjectAgreement Agreement, DDParam* Param);
 
 	//销毁对象方法,传入参数是协议类型和销毁对象
 	UFUNCTION()
-		void DestroyObject(ECallResult& Result, EAgreementType Agreement, TArray<FString> ObjectNameGroup);
+		void DestroyObject(int32& AsyResult, EAgreementType Agreement, TArray<FString> ObjectNameGroup);
 
 public:
 

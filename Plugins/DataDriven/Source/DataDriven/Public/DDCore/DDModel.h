@@ -7,7 +7,7 @@
 #include "DDModel.generated.h"
 
 class UDDModule;
-class DDBaseObject;
+class IDDOO;
 
 /**
  *
@@ -24,22 +24,22 @@ public:
 	////注册单个子类模组
 	//void RegisterChildModule(UDDModule* ChildMod);
 	//注册对象
-	void RegisterObject(DDBaseObject* ObjectInst);
+	void RegisterObject(IDDOO* ObjectInst);
 	//数据的Tick函数
 	virtual void ModelTick(float DeltaSeconds);
 	//根据名字获取对象
-	void GetSelfObject(TArray<FString>* ObjectNameGroup, TArray<DDBaseObject*>& TargetObjectGroup);
+	void GetSelfObject(TArray<FString> ObjectNameGroup, TArray<IDDOO*>& TargetObjectGroup);
 	//根据名字获取其他对象,返回全部对象的数量
-	int32 GetOtherObject(TArray<FString>* ObjectNameGroup, TArray<DDBaseObject*>& TargetObjectGroup);
+	int32 GetOtherObject(TArray<FString> ObjectNameGroup, TArray<IDDOO*>& TargetObjectGroup);
 	//根据名字数组获取相同类的其他对象,返回这个类的对象的数量
-	int32 GetClassOtherObject(TArray<FString>* ObjectNameGroup, TArray<DDBaseObject*>& TargetObjectGroup);
+	int32 GetClassOtherObject(TArray<FString> ObjectNameGroup, TArray<IDDOO*>& TargetObjectGroup);
 	//根据名字获取类的对象
-	void GetSelfClass(TArray<FString>* ObjectNameGroup, TArray<DDBaseObject*>& TargetObjectGroup);
+	void GetSelfClass(TArray<FString> ObjectNameGroup, TArray<IDDOO*>& TargetObjectGroup);
 	//根据名字获取类以外的类的对象
-	void GetOtherClass(TArray<FString>* ObjectNameGroup, TArray<DDBaseObject*>& TargetObjectGroup);
+	void GetOtherClass(TArray<FString> ObjectNameGroup, TArray<IDDOO*>& TargetObjectGroup);
 	
 	//销毁对象
-	void DestroyObject(EAgreementType Agreement, TArray<FString>* ObjectNameGroup);
+	void DestroyObject(EAgreementType Agreement, TArray<FString> ObjectNameGroup);
 
 	//返回全部对象的数量
 	int32 GetObjectGroupNum() const;
@@ -60,20 +60,20 @@ protected:
 	////子集模组
 	//TMap<int32, UDDModule*> ChildModule;
 	//模组对象
-	TMap<FString, DDBaseObject*> ObjectGroup;
+	TMap<FString, IDDOO*> ObjectGroup;
 	//模组类对象集
-	TMap<FString, TArray<DDBaseObject*>> ObjectClassGroup;
+	TMap<FString, TArray<IDDOO*>> ObjectClassGroup;
 
 	//等待生命周期的对象集
-	TArray<DDBaseObject*> ObjectLifeGroup;
+	TArray<IDDOO*> ObjectLifeGroup;
 	//运行Tick函数的对象集
-	TArray<DDBaseObject*> ObjectTickGroup;
+	TArray<IDDOO*> ObjectTickGroup;
 
 	//销毁生命周期的对象集
-	TArray<DDBaseObject*> ObjectDestroyGroup;
+	TArray<IDDOO*> ObjectDestroyGroup;
 	//释放周期函数,只执行一次就全部释放
-	TArray<DDBaseObject*> ObjectReleaseGroup;
+	TArray<IDDOO*> ObjectReleaseGroup;
 	//临时销毁生命周期的对象集,确保已经激活才销毁
-	TArray<DDBaseObject*> PreObjectDestroyGroup;
+	TArray<IDDOO*> PreObjectDestroyGroup;
 
 };

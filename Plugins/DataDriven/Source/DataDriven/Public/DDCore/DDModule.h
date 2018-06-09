@@ -4,13 +4,13 @@
 
 #include "CoreMinimal.h"
 #include "Components/SceneComponent.h"
-#include "Common/DDCommon.h"
+#include "DDCommon/DDCommon.h"
 #include "DDModule.generated.h"
 
 class UDDManager;
 class UDDModel;
 class UDDMessage;
-class DDBaseObject;
+class IDDOO;
 
 
 UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
@@ -22,22 +22,25 @@ public:
 	// Sets default values for this component's properties
 	UDDModule();
 
+	//Module的预BeginPlay函数
+	virtual void PreModuleBeginPlay();
+
 	//Module的BeginPlay函数
 	virtual void ModuleBeginPlay();
 
 	//Module的Tick函数
 	virtual void ModuleTick(float DeltaSeconds);
 
-	bool RegisterObject(DDBaseObject* Object);
+	bool RegisterObject(IDDOO* Object);
 
 	void CreateManager();
 
 	void ChangeModuleType(FString ModuleType);
 
 	//调动模组方法
-	void ExecuteFunction(FDDModuleAgreement* Agreement, FDDParam* Param);
+	void ExecuteFunction(DDModuleAgreement Agreement, DDParam* Param);
 	//调用对象方法
-	void ExecuteFunction(FDDObjectAgreement* Agreement, FDDParam* Param);
+	void ExecuteFunction(DDObjectAgreement Agreement, DDParam* Param);
 
 public:
 

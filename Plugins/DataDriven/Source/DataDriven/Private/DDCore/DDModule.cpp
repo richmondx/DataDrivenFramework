@@ -2,7 +2,7 @@
 
 #include "DDModule.h"
 #include "DDManager.h"
-#include "DDBaseObject.h"
+#include "DDOO.h"
 
 
 // Sets default values for this component's properties
@@ -17,6 +17,11 @@ UDDModule::UDDModule()
 
 }
 
+
+void UDDModule::PreModuleBeginPlay()
+{
+
+}
 
 void UDDModule::ModuleBeginPlay()
 {
@@ -39,7 +44,7 @@ void UDDModule::ModuleTick(float DeltaSeconds)
 }
 
 
-bool UDDModule::RegisterObject(DDBaseObject* Object)
+bool UDDModule::RegisterObject(IDDOO* Object)
 {
 	//如果这个Module的ID和物品的ID不相同,直接返回false
 	if (Object->GetModuleIndex() != ModuleIndex) return false;
@@ -68,26 +73,29 @@ void UDDModule::ChangeModuleType(FString ModuleType)
 	}*/
 }
 
-void UDDModule::ExecuteFunction(FDDModuleAgreement* Agreement, FDDParam* Param)
+void UDDModule::ExecuteFunction(DDModuleAgreement Agreement, DDParam* Param)
 {
 	//如果不是本地模组,直接返回
-	if (Agreement->ModuleIndex != ModuleIndex) return;
+	if (Agreement.ModuleIndex != ModuleIndex) return;
 	//调用Manager的UFunction
-	UFunction* ExeFunc = Manager->FindFunction(FName(*Agreement->FunctionName));
+	UFunction* ExeFunc = Manager->FindFunction(FName(*Agreement.FunctionName));
 	//如果方法存在就执行
 	if (ExeFunc) {
-		Manager->ProcessEvent(ExeFunc, Param);
+		//设置为调用成功,在调用前执行避免在方法内部再修改
+		Param->AsyResult = ECallResult::Succeed;
+		//调用方法
+		Manager->ProcessEvent(ExeFunc, Param->ParamPtr);
 	}
 	else {
 		//方法不存在就设置结果为NoModFunc
-		Param->Result = ECallResult::NoFunction;
+		Param->AsyResult = ECallResult::NoFunction;
 	}
 }
 
-void UDDModule::ExecuteFunction(FDDObjectAgreement* Agreement, FDDParam* Param)
+void UDDModule::ExecuteFunction(DDObjectAgreement Agreement, DDParam* Param)
 {
 	//如果不是本地模组,直接返回
-	if (Agreement->ModuleIndex != ModuleIndex) return;
+	if (Agreement.ModuleIndex != ModuleIndex) return;
 	//直接执行Manger的执行对象方法
 	Manager->ExecuteObjectFunction(Agreement, Param);
 }

@@ -8,3 +8,8 @@
 
 
 
+void UDDObject::DDRelease()
+{
+	//立马回收资源
+	ConditionalBeginDestroy();
+}

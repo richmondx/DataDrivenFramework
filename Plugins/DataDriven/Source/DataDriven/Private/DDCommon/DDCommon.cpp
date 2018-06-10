@@ -5,14 +5,19 @@
 
 UDDCommon* UDDCommon::DDInst = NULL;
 
-UWorld* UDDCommon::DDWorld = NULL;
-
-ADDGameMode* UDDCommon::DDGameMode = NULL;
-
-
 UDDCommon* UDDCommon::Get()
 {
-	if(!DDInst) DDInst = Cast<UDDCommon>(GEngine->GameSingleton);
+	/************************************************************************/
+	/* 另一种方法 使用GEngine->GameSingleton, 到时候提一下, 需要在编辑器设置, 好像只能做一个, 最好不用
+				if (!DDInst) DDInst = Cast<UDDCommon>( GEngine->GameSingleton );
+	链接在:  https://wiki.unrealengine.com/Global_Data_Access,_Data_Storage_Class_Accessible_From_Any_CPP_or_BP_Class_During_Runtime
+	*/
+	/************************************************************************/
+
+	if (!DDInst) {
+		DDInst = NewObject<UDDCommon>();
+		DDInst->AddToRoot();
+	}
 	return DDInst;
 }
 

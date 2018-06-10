@@ -17,6 +17,9 @@ public:
 	// Sets default values for this character's properties
 	ADDCharacter();
 
+	//重写释放函数
+	virtual void DDRelease() override;
+
 public:
 
 	//模组名字,如果为空,说明要手动指定,不为空就是自动指定

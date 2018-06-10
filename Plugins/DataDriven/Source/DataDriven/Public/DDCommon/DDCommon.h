@@ -91,19 +91,19 @@ public:
 
 	static UDDCommon* Get();
 
-	static ADDGameMode* GetDDGameMode();
+	ADDGameMode* GetDDGameMode();
 
-	static UWorld* GetDDWorld();
+	UWorld* GetDDWorld();
 
-	static void SetDDWorld(UWorld* World);
+	void SetDDWorld(UWorld* World);
 
-	static void SetDDGameMode(ADDGameMode* GameMode);
+	void SetDDGameMode(ADDGameMode* GameMode);
 
 private:
 
-	static UWorld* DDWorld;
+	UWorld* DDWorld;
 
-	static ADDGameMode* DDGameMode;
+	ADDGameMode* DDGameMode;
 
 	static UDDCommon* DDInst;
 

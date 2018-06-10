@@ -8,9 +8,9 @@ UDDSceneComponent::UDDSceneComponent()
 {
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = false;
-
+	//设置允许销毁
+	bAllowAnyoneToDestroyMe = true;
 }
-
 
 // Called when the game starts
 void UDDSceneComponent::BeginPlay()
@@ -21,6 +21,11 @@ void UDDSceneComponent::BeginPlay()
 	RegisterToModule(ModuleName, ObjectName, ClassName);
 }
 
-
+void UDDSceneComponent::DDRelease()
+{
+	//从组件中删除自己,并标记为准备被gc回收
+	DestroyComponent();
+	//ConditionalBeginDestroy();
+}
 
 

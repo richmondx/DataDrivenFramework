@@ -19,6 +19,9 @@ public:
 
 	ADDHUD();
 
+	//GameState不允许销毁,不允许重写销毁周期函数
+	//virtual void DDRelease() override;
+
 public:
 
 	//模组名字,如果为空,说明要手动指定,不为空就是自动指定

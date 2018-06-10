@@ -20,3 +20,9 @@ void ADDPawn::BeginPlay()
 }
 
 
+void ADDPawn::DDRelease()
+{
+	//能调用这个方法那么一定是注册到了框架,获取的世界一定不为空
+	GetDDWorld()->DestroyActor(this);
+}
+

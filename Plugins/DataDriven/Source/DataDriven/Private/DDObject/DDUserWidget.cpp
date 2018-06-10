@@ -14,3 +14,11 @@ bool UDDUserWidget::Initialize()
 
 	return true;
 }
+
+void UDDUserWidget::DDRelease()
+{
+	//再检查一次从父类移除
+	RemoveFromParent();
+	//立马回收资源
+	ConditionalBeginDestroy();
+}

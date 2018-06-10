@@ -22,6 +22,14 @@ namespace DDHelper {
 		}
 	}
 
+	//获取世界
+	FORCEINLINE UWorld* GetDDWorld() {
+		if (GWorld) {
+			return GWorld.GetReference();
+		}
+		return NULL;
+	}
+
 	//获取GameMode方法,这个方法作为获取GameMode的参考,不使用
 	FORCEINLINE ADDGameMode* GetDDGameMode()
 	{
@@ -29,7 +37,7 @@ namespace DDHelper {
 			UWorld* WorldPtr = GWorld.GetReference();
 			if (WorldPtr) {
 				if (UGameplayStatics::GetGameMode(WorldPtr)) {
-					return Cast<ADDGameMode>(UGameplayStatics::GetGameMode(WorldPtr));
+					return (ADDGameMode*)(UGameplayStatics::GetGameMode(WorldPtr));
 				}
 			}
 		}

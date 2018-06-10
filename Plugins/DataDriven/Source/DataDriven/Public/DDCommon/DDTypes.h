@@ -17,6 +17,9 @@ class DATADRIVEN_API UDDTypes : public UObject
 
 };
 
+
+
+
 //默认模组枚举
 UENUM()
 enum class EDefaultModule : uint8 {
@@ -111,6 +114,23 @@ public:
 	FString FunctionName;
 };
 
+/************************************************************************/
+/* 开发的游戏的内容放这里              Begin            开发的游戏的内容放这里*/
+/************************************************************************/
+
+//坦克游戏的菜单模组
+UENUM()
+enum class EMenuMapModule : uint8 {
+	Center = 0, //中央模组
+	Controller, //控制器,就是玩家
+	HUD,        //HUD
+	Menu,       //实际的Widget
+};
+
+/************************************************************************/
+/* 开发的游戏的内容放这里               End             开发的游戏的内容放这里*/
+/************************************************************************/
+
 
 //UCLASS()
 //class DATADRIVEN_API UDDParameter : public UObject
@@ -147,3 +167,4 @@ public:
 //
 //	UDDParameter* Parameter;
 //};
+

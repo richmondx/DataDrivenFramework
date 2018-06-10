@@ -15,5 +15,5 @@ void ADDPlayerState::BeginPlay()
 	Super::BeginPlay();
 
 	//×Ô¶¯×¢²á
-	RegisterToModule(ModuleName);
+	RegisterToModule(ModuleName, ObjectName, ClassName);
 }

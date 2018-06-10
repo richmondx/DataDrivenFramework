@@ -6,18 +6,16 @@
 #include "DDModule.h"
 
 
-void IDDOO::RegisterName(FString ObjName, FString ClaName)
-{
-	if (!ObjName.IsEmpty()) ObjectName = ObjName;
-	if (!ClaName.IsEmpty()) ClassName = ClaName;
-}
 
-void IDDOO::RegisterToModule(FString ModName)
+void IDDOO::RegisterToModule(FString ModName, FString ObjectName /*= FString()*/, FString ClassName /*= FString()*/)
 {
 	//如果GameMode已经存在,说明已经注册过了,直接返回,避免重复存贮
 	if (DDGameMode) return;
 	//如果模组名为空,直接返回
 	if (ModName.IsEmpty()) return;
+	//注册类名和对象名
+	if (!ObjectName.IsEmpty()) IObjectName = ObjectName;
+	if (!ClassName.IsEmpty()) IClassName = ClassName;
 	//获取UObject主体
 	Body = Cast<UObject>(this);
 	//获取GameMode
@@ -58,12 +56,12 @@ int32 IDDOO::GetModuleIndex() const
 
 FString IDDOO::GetObjectName() const
 {
-	return ObjectName.IsEmpty() ? Body->GetName() : ObjectName;
+	return IObjectName.IsEmpty() ? Body->GetName() : IObjectName;
 }
 
 FString IDDOO::GetClassName() const
 {
-	return ClassName;
+	return IClassName;
 }
 
 

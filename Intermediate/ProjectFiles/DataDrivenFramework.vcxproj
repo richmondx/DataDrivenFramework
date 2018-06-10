@@ -406,6 +406,16 @@
     <NMakeOutput>..\..\Binaries\HTML5\DataDrivenFramework-HTML5-Shipping.js</NMakeOutput>
   </PropertyGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\DataDrivenFramework\Private\GamePlay\TKMenuController.cpp" />
+    <ClCompile Include="..\..\Source\DataDrivenFramework\Private\Manager\TKMenuHUDManager.cpp" />
+    <ClCompile Include="..\..\Source\DataDrivenFramework\Private\UI\HUD\TKMenuHUD.cpp" />
+    <ClCompile Include="..\..\Source\DataDrivenFramework\Private\UI\Widget\TKMenuWidget.cpp" />
+    <ClCompile Include="..\..\Source\DataDrivenFramework\Private\UI\Widget\TKOptionWidget.cpp" />
+    <ClInclude Include="..\..\Source\DataDrivenFramework\Public\GamePlay\TKMenuController.h" />
+    <ClInclude Include="..\..\Source\DataDrivenFramework\Public\Manager\TKMenuHUDManager.h" />
+    <ClInclude Include="..\..\Source\DataDrivenFramework\Public\UI\HUD\TKMenuHUD.h" />
+    <ClInclude Include="..\..\Source\DataDrivenFramework\Public\UI\Widget\TKMenuWidget.h" />
+    <ClInclude Include="..\..\Source\DataDrivenFramework\Public\UI\Widget\TKOptionWidget.h" />
     <None Include="..\..\DataDrivenFramework.uproject" />
     <None Include="..\..\Source\DataDrivenFramework.Target.cs" />
     <None Include="..\..\Source\DataDrivenFrameworkEditor.Target.cs" />

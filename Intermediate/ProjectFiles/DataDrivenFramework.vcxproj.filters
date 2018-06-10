@@ -223,6 +223,21 @@
     <ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\DDObject\DDSceneComponent.h">
       <Filter>Plugins\DataDriven\Source\DataDriven\Public\DDObject</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\DataDrivenFramework\Public\UI\HUD\TKMenuHUD.h">
+      <Filter>Source\DataDrivenFramework\Public\UI\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DataDrivenFramework\Public\UI\Widget\TKMenuWidget.h">
+      <Filter>Source\DataDrivenFramework\Public\UI\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DataDrivenFramework\Public\UI\Widget\TKOptionWidget.h">
+      <Filter>Source\DataDrivenFramework\Public\UI\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DataDrivenFramework\Public\GamePlay\TKMenuController.h">
+      <Filter>Source\DataDrivenFramework\Public\GamePlay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DataDrivenFramework\Public\Manager\TKMenuHUDManager.h">
+      <Filter>Source\DataDrivenFramework\Public\Manager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\DDObject\DDOO.cpp">
@@ -243,5 +258,58 @@
     <ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\DDObject\DDSceneComponent.cpp">
       <Filter>Plugins\DataDriven\Source\DataDriven\Private\DDObject</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\DataDrivenFramework\Private\UI\HUD\TKMenuHUD.cpp">
+      <Filter>Source\DataDrivenFramework\Private\UI\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DataDrivenFramework\Private\UI\Widget\TKMenuWidget.cpp">
+      <Filter>Source\DataDrivenFramework\Private\UI\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DataDrivenFramework\Private\UI\Widget\TKOptionWidget.cpp">
+      <Filter>Source\DataDrivenFramework\Private\UI\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DataDrivenFramework\Private\GamePlay\TKMenuController.cpp">
+      <Filter>Source\DataDrivenFramework\Private\GamePlay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DataDrivenFramework\Private\Manager\TKMenuHUDManager.cpp">
+      <Filter>Source\DataDrivenFramework\Private\Manager</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source\DataDrivenFramework\Public">
+      <UniqueIdentifier>{739accaf-c75d-4ab7-98b9-7a9c6545e320}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\DataDrivenFramework\Public\UI">
+      <UniqueIdentifier>{b95ca64d-7fe9-4a2a-b7c1-497e6f5c4193}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\DataDrivenFramework\Public\UI\HUD">
+      <UniqueIdentifier>{da86a6fe-8dd4-4f65-a032-77df33318c20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\DataDrivenFramework\Private">
+      <UniqueIdentifier>{43a30bc7-b30b-4a61-be27-03bdfac93014}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\DataDrivenFramework\Private\UI">
+      <UniqueIdentifier>{3c53f4db-8455-4bab-ba93-18f16db9e323}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\DataDrivenFramework\Private\UI\HUD">
+      <UniqueIdentifier>{4a15b4e3-c744-4647-9af3-59870fb5d107}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\DataDrivenFramework\Public\UI\Widget">
+      <UniqueIdentifier>{1baac28b-bee7-4b5b-a0a4-4de35334078d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\DataDrivenFramework\Private\UI\Widget">
+      <UniqueIdentifier>{4fc6e901-f2d6-4a8c-8cb3-0b872a778e19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\DataDrivenFramework\Public\GamePlay">
+      <UniqueIdentifier>{74b1c8a8-e998-425e-8d70-66407575d5d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\DataDrivenFramework\Private\GamePlay">
+      <UniqueIdentifier>{54028ceb-18f3-4365-9c90-e73466d67ef1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\DataDrivenFramework\Public\Manager">
+      <UniqueIdentifier>{45360b30-aec8-432f-a37b-53ae12e19e59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\DataDrivenFramework\Private\Manager">
+      <UniqueIdentifier>{7d7c5d05-513a-40ae-ac2a-d630060253b1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

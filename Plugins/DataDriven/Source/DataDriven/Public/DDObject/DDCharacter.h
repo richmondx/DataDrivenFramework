@@ -22,6 +22,12 @@ public:
 	//模组名字,如果为空,说明要手动指定,不为空就是自动指定
 	UPROPERTY(EditAnywhere, Category = "DataDriven")
 		FString ModuleName;
+	//对象名字,如果为空,说明要手动指定,不为空就是自动指定
+	UPROPERTY(EditAnywhere, Category = "DataDriven")
+		FString ObjectName;
+	//类名字,如果为空,说明要手动指定,不为空就是自动指定
+	UPROPERTY(EditAnywhere, Category = "DataDriven")
+		FString ClassName;
 
 protected:
 	// Called when the game starts or when spawned

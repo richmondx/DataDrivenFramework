@@ -26,11 +26,8 @@ class DATADRIVEN_API IDDOO
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
 
-	//设置对象名和类名,用于从外部注册,如果手动注册要重置类名就调用这个方法再调用RegisterToModule方法
-	void RegisterName(FString ObjName, FString ClaName);
-
 	//通过传入的ModName是否为空来判定是否自动注册
-	void RegisterToModule(FString ModName);
+	void RegisterToModule(FString ModName, FString ObjectName = FString(), FString ClassName = FString());
 
 	//从外部指定模组
 	void AssignModule(UDDModule* Mod);
@@ -101,10 +98,10 @@ protected:
 	int32 ModuleIndex;
 
 	//物品的名字,如果不为空,获取物品名就返回这个,并且此物品在对应的Module唯一
-		FString ObjectName;
+	FString IObjectName;
 
 	//类名,这个在初始化时一定要指定
-		FString ClassName;
+	FString IClassName;
 	
 	
 };

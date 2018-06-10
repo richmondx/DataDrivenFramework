@@ -10,7 +10,7 @@ bool UDDUserWidget::Initialize()
 	if (!Super::Initialize()) return false;
 
 	//×Ô¶¯×¢²á
-	RegisterToModule(ModuleName);
+	RegisterToModule(ModuleName, ObjectName, ClassName);
 
 	return true;
 }

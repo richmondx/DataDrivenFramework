@@ -43,6 +43,8 @@ public:
 	void ExecuteSelfClass(DDObjectAgreement Agreement, DDParam* Param);
 	//执行其他类对象的方法
 	void ExecuteOtherClass(DDObjectAgreement Agreement, DDParam* Param);
+	//执行所有对象的方法
+	void ExecuteAll(DDObjectAgreement Agreement, DDParam* Param);
 
 	////注册父类模组
 	//void RegisterSuperModule(UDDModule* SuperMod);
@@ -58,7 +60,16 @@ public:
 
 	//销毁对象方法,传入参数是协议类型和销毁对象
 	UFUNCTION()
-		void DestroyObject(int32& AsyResult, EAgreementType Agreement, TArray<FString> ObjectNameGroup);
+		void DestroyObject(EAgreementType Agreement, TArray<FString> ObjectNameGroup);
+
+	//激活对象方法,传入参数是协议类型和激活的对象
+	UFUNCTION()
+		void EnableObject(EAgreementType Agreement, TArray<FString> ObjectNameGroup);
+
+	//激活对象方法,传入参数是协议类型和激活的对象
+	UFUNCTION()
+		void DisableObject(EAgreementType Agreement, TArray<FString> ObjectNameGroup);
+
 
 public:
 

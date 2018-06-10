@@ -17,13 +17,13 @@ class UDDOO : public UInterface
 };
 
 /**
- * 
+ *
  */
 class DATADRIVEN_API IDDOO
 {
 	GENERATED_BODY()
 
-	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
+		// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
 
 	//通过传入的ModName是否为空来判定是否自动注册
@@ -58,7 +58,11 @@ public:
 	//发布方法
 	void ExecuteFunction(DDObjectAgreement Agreement, DDParam* Param);
 	//运行释放函数
-	void OnRealse();
+	virtual void OnRealse();
+	//激活对象
+	virtual void OnEnable();
+	//失活对象
+	virtual void OnDisable();
 
 public:
 
@@ -102,6 +106,6 @@ protected:
 
 	//类名,这个在初始化时一定要指定
 	FString IClassName;
-	
-	
+
+
 };

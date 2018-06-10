@@ -37,9 +37,15 @@ public:
 	void GetSelfClass(TArray<FString> ObjectNameGroup, TArray<IDDOO*>& TargetObjectGroup);
 	//根据名字获取类以外的类的对象
 	void GetOtherClass(TArray<FString> ObjectNameGroup, TArray<IDDOO*>& TargetObjectGroup);
+	//获取所有对象
+	void GetAll(TArray<IDDOO*>& TargetObjectGroup);
 	
 	//销毁对象
 	void DestroyObject(EAgreementType Agreement, TArray<FString> ObjectNameGroup);
+	//激活对象
+	void EnableObject(EAgreementType Agreement, TArray<FString> ObjectNameGroup);
+	//失活对象
+	void DisableObject(EAgreementType Agreement, TArray<FString> ObjectNameGroup);
 
 	//返回全部对象的数量
 	int32 GetObjectGroupNum() const;

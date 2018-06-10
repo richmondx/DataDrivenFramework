@@ -181,6 +181,14 @@ void UDDModel::GetOtherClass(TArray<FString> ObjectNameGroup, TArray<IDDOO*>& Ta
 	}
 }
 
+void UDDModel::GetAll(TArray<IDDOO*>& TargetObjectGroup)
+{
+	//把对象组里与传入对象名组不相同的对象全部存到TargetObjectGroup
+	for (TMap<FString, IDDOO*>::TIterator It(ObjectGroup); It; ++It) {
+		TargetObjectGroup.Add(It->Value);
+	}
+}
+
 void UDDModel::DestroyObject(EAgreementType Agreement, TArray<FString> ObjectNameGroup)
 {
 	TArray<IDDOO*> TargetObjectGroup;
@@ -201,6 +209,9 @@ void UDDModel::DestroyObject(EAgreementType Agreement, TArray<FString> ObjectNam
 	case EAgreementType::OtherClass:
 		GetOtherClass(ObjectNameGroup, TargetObjectGroup);
 		break;
+	case EAgreementType::All:
+		GetAll(TargetObjectGroup);
+		break;
 	}
 	//迭代将对象添加到PreObjectDestroyGroup或者ObjectDestroyGroup
 	for (int i = 0; i < TargetObjectGroup.Num(); ++i)
@@ -218,6 +229,70 @@ void UDDModel::DestroyObject(EAgreementType Agreement, TArray<FString> ObjectNam
 				break;
 			}
 		}
+	}
+}
+
+void UDDModel::EnableObject(EAgreementType Agreement, TArray<FString> ObjectNameGroup)
+{
+	TArray<IDDOO*> TargetObjectGroup;
+	switch (Agreement)
+	{
+	case EAgreementType::SelfObject:
+		GetSelfObject(ObjectNameGroup, TargetObjectGroup);
+		break;
+	case EAgreementType::OtherObject:
+		GetOtherObject(ObjectNameGroup, TargetObjectGroup);
+		break;
+	case EAgreementType::ClassOtherObject:
+		GetClassOtherObject(ObjectNameGroup, TargetObjectGroup);
+		break;
+	case EAgreementType::SelfClass:
+		GetSelfClass(ObjectNameGroup, TargetObjectGroup);
+		break;
+	case EAgreementType::OtherClass:
+		GetOtherClass(ObjectNameGroup, TargetObjectGroup);
+		break;
+	case EAgreementType::All:
+		GetAll(TargetObjectGroup);
+		break;
+	}
+	//迭代运行
+	for (int i = 0; i < TargetObjectGroup.Num(); ++i) {
+		//如果这个对象处于稳定与失活状态就运行他的激活状态函数
+		if (TargetObjectGroup[i]->RunState == EBaseObjectState::Stable && TargetObjectGroup[i]->LifeState == EBaseObjectLife::Disable)
+			TargetObjectGroup[i]->OnEnable();
+	}
+}
+
+void UDDModel::DisableObject(EAgreementType Agreement, TArray<FString> ObjectNameGroup)
+{
+	TArray<IDDOO*> TargetObjectGroup;
+	switch (Agreement)
+	{
+	case EAgreementType::SelfObject:
+		GetSelfObject(ObjectNameGroup, TargetObjectGroup);
+		break;
+	case EAgreementType::OtherObject:
+		GetOtherObject(ObjectNameGroup, TargetObjectGroup);
+		break;
+	case EAgreementType::ClassOtherObject:
+		GetClassOtherObject(ObjectNameGroup, TargetObjectGroup);
+		break;
+	case EAgreementType::SelfClass:
+		GetSelfClass(ObjectNameGroup, TargetObjectGroup);
+		break;
+	case EAgreementType::OtherClass:
+		GetOtherClass(ObjectNameGroup, TargetObjectGroup);
+		break;
+	case EAgreementType::All:
+		GetAll(TargetObjectGroup);
+		break;
+	}
+	//迭代运行
+	for (int i = 0; i < TargetObjectGroup.Num(); ++i) {
+		//如果这个对象处于稳定与激活状态就运行他的失活状态函数
+		if (TargetObjectGroup[i]->RunState == EBaseObjectState::Stable && TargetObjectGroup[i]->LifeState == EBaseObjectLife::Enable)
+			TargetObjectGroup[i]->OnDisable();
 	}
 }
 

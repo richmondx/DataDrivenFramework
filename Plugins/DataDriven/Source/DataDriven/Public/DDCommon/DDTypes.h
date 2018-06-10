@@ -38,7 +38,8 @@ enum class EAgreementType : uint8 {
 	OtherObject,       //给传入的对象之外的对象通信
 	ClassOtherObject,  //给传入的对象的相同类的其他对象通信,调用这个方法要确保传过来的对象都是同一类的,如果不同类就多次通信
 	SelfClass,         //给这个类的对象通信
-	OtherClass         //给这个类之外的类通信
+	OtherClass,        //给这个类之外的类通信
+	All                //给所有的对象通信
 };
 
 //调用结果,项目开发时请确保每次都能调用成功

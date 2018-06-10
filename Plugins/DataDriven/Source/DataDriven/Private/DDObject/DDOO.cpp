@@ -139,6 +139,22 @@ void IDDOO::OnRealse()
 	DDRelease();
 }
 
+void IDDOO::OnEnable()
+{
+	//一般运行一下DDEnable函数,可以重写
+	DDEnable();
+	//设置状态为激活状态
+	LifeState = EBaseObjectLife::Enable;
+}
+
+void IDDOO::OnDisable()
+{
+	//一般运行一下DDDisable函数,可以重写
+	DDDisable();
+	//设置状态为失活状态
+	LifeState = EBaseObjectLife::Disable;
+}
+
 void IDDOO::ObjectTick(float DeltaSeconds) {}
 
 //生命周期系列函数

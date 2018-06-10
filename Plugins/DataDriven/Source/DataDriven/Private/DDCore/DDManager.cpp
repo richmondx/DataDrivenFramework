@@ -51,6 +51,9 @@ void UDDManager::ExecuteObjectFunction(DDObjectAgreement Agreement, DDParam* Par
 	case EAgreementType::OtherClass:
 		ExecuteOtherClass(Agreement, Param);
 		break;
+	case EAgreementType::All:
+		ExecuteAll(Agreement, Param);
+		break;
 	}
 }
 
@@ -186,10 +189,41 @@ void UDDManager::ExecuteOtherClass(DDObjectAgreement Agreement, DDParam* Param)
 }
 
 
-void UDDManager::DestroyObject(int32& AsyResult, EAgreementType Agreement, TArray<FString> ObjectNameGroup)
+void UDDManager::ExecuteAll(DDObjectAgreement Agreement, DDParam* Param)
+{
+	//定义存储目标对象的组
+	TArray<IDDOO*> TargetObjectGroup;//从数据组件获取对象组
+	Model->GetAll(TargetObjectGroup);
+	//循环调用事件
+	for (int i = 0; i < TargetObjectGroup.Num(); ++i) {
+		//获取方法
+		UFunction* ExeFunc = TargetObjectGroup[i]->GetObjectBody()->FindFunction(FName(*Agreement.FunctionName));
+		if (ExeFunc) {
+			//设置为调用成功,在调用前执行避免在方法内部再修改
+			Param->AsyResult = ECallResult::Succeed;
+			//执行方法
+			TargetObjectGroup[i]->GetObjectBody()->ProcessEvent(ExeFunc, Param->ParamPtr);
+		}
+		else {
+			//如果没有方法就设置调用结果为没有对应方法
+			Param->AsyResult = ECallResult::NoFunction;
+		}
+	}
+}
+
+void UDDManager::DestroyObject(EAgreementType Agreement, TArray<FString> ObjectNameGroup)
 {
 	Model->DestroyObject(Agreement, ObjectNameGroup);
-	AsyResult = 1;
+}
+
+void UDDManager::EnableObject(EAgreementType Agreement, TArray<FString> ObjectNameGroup)
+{
+	Model->EnableObject(Agreement, ObjectNameGroup);
+}
+
+void UDDManager::DisableObject(EAgreementType Agreement, TArray<FString> ObjectNameGroup)
+{
+	Model->DisableObject(Agreement, ObjectNameGroup);
 }
 
 //void UDDManager::RegisterSuperModule(UDDModule* SuperMod)

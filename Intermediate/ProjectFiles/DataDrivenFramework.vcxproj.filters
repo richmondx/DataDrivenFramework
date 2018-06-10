@@ -238,6 +238,12 @@
     <ClInclude Include="..\..\Source\DataDrivenFramework\Public\Manager\TKMenuHUDManager.h">
       <Filter>Source\DataDrivenFramework\Public\Manager</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\DDObject\DDGameInstance.h">
+      <Filter>Plugins\DataDriven\Source\DataDriven\Public\DDObject</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DataDrivenFramework\Public\GamePlay\TKGameInstance.h">
+      <Filter>Source\DataDrivenFramework\Public\GamePlay</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\DDObject\DDOO.cpp">
@@ -272,6 +278,12 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\DataDrivenFramework\Private\Manager\TKMenuHUDManager.cpp">
       <Filter>Source\DataDrivenFramework\Private\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\DDObject\DDGameInstance.cpp">
+      <Filter>Plugins\DataDriven\Source\DataDriven\Private\DDObject</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DataDrivenFramework\Private\GamePlay\TKGameInstance.cpp">
+      <Filter>Source\DataDrivenFramework\Private\GamePlay</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

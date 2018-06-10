@@ -35,6 +35,8 @@ void ADDGameMode::BeginPlay()
 
 	//调用中央模组的BeginPlay迭代
 	Center->IterPreModuleBeginPlay(Center);
+	//注册GameInstance到框架
+	RegisterGameInstance();
 }
 
 void ADDGameMode::Tick(float DeltaSeconds)
@@ -83,4 +85,12 @@ bool ADDGameMode::RegisterToModule(IDDOO* Object)
 	return Center->IterRegisterToModule(Center, Object);
 }
 
+void ADDGameMode::RegisterGameInstance()
+{
+	//获取GameInstance
+	UGameInstance* GameInst = UGameplayStatics::GetGameInstance(GetWorld());
+	//如果存在并且继承自IDDOO,就注册进Center,类名和对象名都是GameInstance
+	if (GameInst && Cast<IDDOO>(GameInst))
+		Cast<IDDOO>(GameInst)->RegisterToModule("Center", "GameInstacne", "GameInstacne");
+}
 

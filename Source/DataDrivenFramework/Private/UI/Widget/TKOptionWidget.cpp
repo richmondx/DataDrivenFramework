@@ -43,6 +43,7 @@ void UTKOptionWidget::ButtonEventThree()
 
 void UTKOptionWidget::ButtonEventFour()
 {
-	HUDInfoParam* Param = HUDInfo(int32(EMenuMapModule::HUD), "HUDInfo", "ButtonEventFour", 4);
+	GIInfoParam* Param = GIInfo((int32)EMenuMapModule::Center, EAgreementType::SelfObject, "GameInstacne", "GIInfo", "I am GIInfo");
+	//DDHelper::Debug(DDHelper::GetEnumValueAsString<ECallResult>("ECallResult", Param->AsyResult), 5.f);
 	delete Param;
 }

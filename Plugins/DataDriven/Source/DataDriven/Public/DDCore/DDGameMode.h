@@ -39,6 +39,9 @@ public:
 	//提供给资源们进行注册
 	bool RegisterToModule(IDDOO* Object);
 
+	//注册GameInstance到框架
+	void RegisterGameInstance();
+
 public:
 
 	UPROPERTY(EditAnywhere, NoClear, BlueprintReadOnly, Category = "DataDriven")

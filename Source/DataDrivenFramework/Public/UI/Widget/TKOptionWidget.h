@@ -37,4 +37,6 @@ protected:
 	DDOBJFUNC_TWO(PCInfo, TArray<FString>, MessInfo, int32, IsUsed);
 
 	DDMODFUNC(SingleInfo);
+
+	DDOBJFUNC_ONE(GIInfo, FString, Info);
 };

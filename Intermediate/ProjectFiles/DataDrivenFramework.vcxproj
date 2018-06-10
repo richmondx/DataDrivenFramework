@@ -406,11 +406,15 @@
     <NMakeOutput>..\..\Binaries\HTML5\DataDrivenFramework-HTML5-Shipping.js</NMakeOutput>
   </PropertyGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Plugins\DataDriven\Source\DataDriven\Private\DDObject\DDGameInstance.cpp" />
+    <ClCompile Include="..\..\Source\DataDrivenFramework\Private\GamePlay\TKGameInstance.cpp" />
     <ClCompile Include="..\..\Source\DataDrivenFramework\Private\GamePlay\TKMenuController.cpp" />
     <ClCompile Include="..\..\Source\DataDrivenFramework\Private\Manager\TKMenuHUDManager.cpp" />
     <ClCompile Include="..\..\Source\DataDrivenFramework\Private\UI\HUD\TKMenuHUD.cpp" />
     <ClCompile Include="..\..\Source\DataDrivenFramework\Private\UI\Widget\TKMenuWidget.cpp" />
     <ClCompile Include="..\..\Source\DataDrivenFramework\Private\UI\Widget\TKOptionWidget.cpp" />
+    <ClInclude Include="..\..\Plugins\DataDriven\Source\DataDriven\Public\DDObject\DDGameInstance.h" />
+    <ClInclude Include="..\..\Source\DataDrivenFramework\Public\GamePlay\TKGameInstance.h" />
     <ClInclude Include="..\..\Source\DataDrivenFramework\Public\GamePlay\TKMenuController.h" />
     <ClInclude Include="..\..\Source\DataDrivenFramework\Public\Manager\TKMenuHUDManager.h" />
     <ClInclude Include="..\..\Source\DataDrivenFramework\Public\UI\HUD\TKMenuHUD.h" />

@@ -23,6 +23,9 @@ void ADDGameMode::PostInitializeComponents()
 {
 	//先调用一次父类
 	Super::PostInitializeComponents();
+	//注册世界和GameMode到UDDCommon单例
+	UDDCommon::Get()->SetDDGameMode(this);
+	UDDCommon::Get()->SetDDWorld(GetWorld());
 	//在游戏运行之前必须进行一次模组	ID的设定
 	Center->IterChangeModuleType(Center, ModuleType);
 	//创建Manager组件

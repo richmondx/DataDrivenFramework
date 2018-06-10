@@ -31,6 +31,9 @@ public:
 
 	//从外部指定模组
 	void AssignModule(UDDModule* Mod);
+	
+	//获取世界
+	UWorld* GetDDWorld() const;
 
 	//获取Obejct主体
 	UObject* GetObjectBody() const;

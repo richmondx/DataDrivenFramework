@@ -22,27 +22,28 @@ namespace DDHelper {
 		}
 	}
 
-	//获取世界
-	FORCEINLINE UWorld* GetDDWorld() {
-		if (GWorld) {
-			return GWorld.GetReference();
-		}
-		return NULL;
-	}
+	//下面这两个方法放在了UDDCommon,更加安全
+	////获取世界
+	//FORCEINLINE UWorld* GetDDWorld() {
+	//	if (GWorld) {
+	//		return GWorld.GetReference();
+	//	}
+	//	return NULL;
+	//}
 
-	//获取GameMode方法,这个方法作为获取GameMode的参考,不使用
-	FORCEINLINE ADDGameMode* GetDDGameMode()
-	{
-		if (GWorld) {
-			UWorld* WorldPtr = GWorld.GetReference();
-			if (WorldPtr) {
-				if (UGameplayStatics::GetGameMode(WorldPtr)) {
-					return (ADDGameMode*)(UGameplayStatics::GetGameMode(WorldPtr));
-				}
-			}
-		}
-		return NULL;
-	}
+	////获取GameMode方法,这个方法作为获取GameMode的参考,不使用
+	//FORCEINLINE ADDGameMode* GetDDGameMode()
+	//{
+	//	if (GWorld) {
+	//		UWorld* WorldPtr = GWorld.GetReference();
+	//		if (WorldPtr) {
+	//			if (UGameplayStatics::GetGameMode(WorldPtr)) {
+	//				return (ADDGameMode*)(UGameplayStatics::GetGameMode(WorldPtr));
+	//			}
+	//		}
+	//	}
+	//	return NULL;
+	//}
 
 	//将传入的Enum值对应的String输出
 	template<typename TEnum>
@@ -86,5 +87,24 @@ class DATADRIVEN_API UDDCommon : public UObject
 {
 	GENERATED_BODY()
 
+public:
+
+	static UDDCommon* Get();
+
+	static ADDGameMode* GetDDGameMode();
+
+	static UWorld* GetDDWorld();
+
+	static void SetDDWorld(UWorld* World);
+
+	static void SetDDGameMode(ADDGameMode* GameMode);
+
+private:
+
+	static UWorld* DDWorld;
+
+	static ADDGameMode* DDGameMode;
+
+	static UDDCommon* DDInst;
 
 };

@@ -17,7 +17,8 @@ public:
 	// Sets default values for this actor's properties
 	ADDActor();
 
-
+	//ÖØÐ´ÊÍ·Åº¯Êý
+	virtual void DDRelease() override;
 
 public:
 

@@ -19,7 +19,8 @@ void IDDOO::RegisterToModule(FString ModName, FString ObjectName /*= FString()*/
 	//获取UObject主体
 	Body = Cast<UObject>(this);
 	//获取GameMode
-	DDGameMode = DDHelper::GetDDGameMode();
+	//DDGameMode = DDHelper::GetDDGameMode();
+	DDGameMode = UDDCommon::Get()->GetDDGameMode();
 	//注册到模组
 	if (DDGameMode)
 	{
@@ -42,6 +43,12 @@ void IDDOO::RegisterToModule(FString ModName, FString ObjectName /*= FString()*/
 void IDDOO::AssignModule(UDDModule* Mod)
 {
 	Module = Mod;
+}
+
+UWorld* IDDOO::GetDDWorld() const
+{
+	if (DDGameMode) return DDGameMode->GetWorld();
+	return NULL;
 }
 
 UObject* IDDOO::GetObjectBody() const
@@ -104,6 +111,8 @@ bool IDDOO::DestroyLife()
 	case EBaseObjectLife::Disable:
 		DDUnRegister();
 		LifeState = EBaseObjectLife::UnRegister;
+		//设置运行状态为销毁,避免从Disable状态下运行的对象没有修改RunState为销毁
+		RunState = EBaseObjectState::Destroy;
 		break;
 	case EBaseObjectLife::UnRegister:
 		DDUnLoading();
